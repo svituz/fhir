@@ -1,6 +1,6 @@
-from flask.ext.tryton import Tryton
-from flask.ext import restful
-from flask.ext.login import LoginManager, login_required
+from flask_tryton import Tryton
+import flask_restful as restful
+from flask_login import LoginManager, login_required
 from .utils import output_xml
 
 #### Extensions
@@ -16,7 +16,7 @@ class Api(restful.Api):
         self.representations = {
             'text/xml': output_xml,
             'application/xml': output_xml,
-            'application/xml+fhir': output_xml
+            'application/fhir+xml': output_xml
         }
 
 # Authentication on every resource
